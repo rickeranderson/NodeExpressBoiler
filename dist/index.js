@@ -4,12 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const controllers_1 = require("./controllers/controllers");
 const app = express_1.default();
 const port = 8080; // default port to listen
 // define a route handler for the default home page
-app.get("/", (req, res) => {
-    res.send("Hello world!");
-});
+const controllers = new controllers_1.Controllers(app);
+// app.get( "/", ( req, res ) => {
+//     res.send( "Hello world!" );
+// } );
 // start the Express server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
